@@ -1,0 +1,301 @@
+/* ==========================================================================
+   CA Inter Prep Tracker — App Layout & Navigation
+   ========================================================================== */
+
+.app-root {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Sidebar (Desktop) */
+.app-sidebar {
+  width: 260px;
+  min-width: 260px;
+  height: 100%;
+  background: var(--bg-sidebar);
+  border-right: var(--border-kawaii);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 16px;
+  box-shadow: 4px 0 20px rgba(240, 160, 190, 0.08);
+  z-index: 100;
+  transition: transform var(--transition-bounce);
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 12px 20px 12px;
+  border-bottom: 1.5px dashed #FFD1DC;
+}
+
+.brand-icon-wrap {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #FFB7B2 0%, #FF9AA2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(255, 154, 162, 0.35);
+  animation: pulseGlow 4s infinite;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+.brand-subtitle {
+  font-size: 11px;
+  font-weight: 700;
+  color: #D6336C;
+  letter-spacing: 0.5px;
+}
+
+/* Navigation Links */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 24px;
+  flex: 1;
+}
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-family: var(--font-title);
+  font-weight: 700;
+  font-size: 14px;
+  transition: all var(--transition-bounce);
+  border: 1.5px solid transparent;
+  cursor: pointer;
+}
+
+.nav-link .nav-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+}
+
+.nav-link:hover {
+  background: #FFF0F5;
+  color: #D6336C;
+  transform: translateX(4px);
+  border-color: #FFD1DC;
+}
+
+.nav-link.active {
+  background: linear-gradient(135deg, #FFE4EC 0%, #FFF0F5 100%);
+  color: #D6336C;
+  border-color: #FFB7B2;
+  box-shadow: 0 4px 12px rgba(255, 183, 178, 0.25);
+}
+
+.nav-link.active .nav-icon {
+  transform: scale(1.15);
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+  padding-top: 16px;
+  border-top: 1.5px dashed #FFD1DC;
+}
+
+.sidebar-study-badge {
+  background: #FFFFFF;
+  border: 1.5px solid var(--pastel-pink);
+  border-radius: var(--radius-md);
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: var(--shadow-soft);
+}
+
+.study-badge-icon {
+  font-size: 20px;
+}
+
+.study-badge-title {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.study-badge-sub {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+/* Main Content Area */
+.app-main {
+  flex: 1;
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 30px 40px 60px 40px;
+  scroll-behavior: smooth;
+}
+
+.app-main::-webkit-scrollbar {
+  width: 8px;
+}
+
+.app-main::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.app-main::-webkit-scrollbar-thumb {
+  background: #FFD1DC;
+  border-radius: 9999px;
+}
+
+.app-main::-webkit-scrollbar-thumb:hover {
+  background: #FF9AA2;
+}
+
+.view-wrapper {
+  max-width: 1080px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+/* Top Page Headers */
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-heading);
+  line-height: 1.2;
+}
+
+.page-subtitle {
+  color: var(--text-muted);
+  font-size: 14px;
+  margin-top: 4px;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+}
+
+.section-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-heading);
+}
+
+.section-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+/* Mobile Navigation Bar */
+.mobile-top-bar {
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: var(--bg-sidebar);
+  border-bottom: var(--border-kawaii);
+  position: sticky;
+  top: 0;
+  z-index: 200;
+}
+
+.mobile-bottom-nav {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: var(--border-kawaii);
+  box-shadow: 0 -4px 20px rgba(240, 160, 190, 0.15);
+  z-index: 300;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 4px 8px;
+}
+
+.mobile-nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-bounce);
+}
+
+.mobile-nav-item.active {
+  color: #D6336C;
+  background: #FFF0F5;
+  transform: translateY(-2px);
+}
+
+.mobile-nav-item .nav-icon {
+  font-size: 18px;
+  margin-bottom: 2px;
+}
+
+/* Responsive Media Queries */
+@media (max-width: 900px) {
+  .app-sidebar {
+    display: none;
+  }
+
+  .mobile-top-bar {
+    display: flex;
+  }
+
+  .mobile-bottom-nav {
+    display: flex;
+  }
+
+  .app-main {
+    padding: 16px 16px 90px 16px;
+  }
+
+  .page-title {
+    font-size: 22px;
+  }
+}
+
+@media (min-width: 901px) {
+  .mobile-top-bar, .mobile-bottom-nav {
+    display: none !important;
+  }
+}
